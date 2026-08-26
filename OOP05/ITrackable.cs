@@ -4,12 +4,12 @@ using System.Text;
 
 #region ITrackable
 
-namespace OOP005
-{
-    public interface ITrackable
-    {
-        string GetTrackingStatus();
-    }
-}
+//namespace OOP005
+//{
+//    public interface ITrackable
+//    {
+//        string GetTrackingStatus();
+//    }
+//}
 
 #endregion
