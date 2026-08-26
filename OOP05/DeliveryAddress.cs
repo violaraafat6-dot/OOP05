@@ -6,37 +6,37 @@ using System.Text;
 #region Deliveryaadeess
 
 
-namespace OOP005
-{
-    public class DeliveryAddress
-    {
-        public string City { get; set; }
-        public string Street { get; set; }
-        public int BuildingNumber { get; set; }
+//namespace OOP005
+//{
+//    public class DeliveryAddress
+//    {
+//        public string City { get; set; }
+//        public string Street { get; set; }
+//        public int BuildingNumber { get; set; }
 
-        public DeliveryAddress(
-            string city,
-            string street,
-            int buildingNumber)
-        {
-            City = city;
-            Street = street;
-            BuildingNumber = buildingNumber;
-        }
+//        public DeliveryAddress(
+//            string city,
+//            string street,
+//            int buildingNumber)
+//        {
+//            City = city;
+//            Street = street;
+//            BuildingNumber = buildingNumber;
+//        }
 
-        public string GetFullAddress()
-        {
-            return $"{BuildingNumber} {Street}, {City}";
-        }
+//        public string GetFullAddress()
+//        {
+//            return $"{BuildingNumber} {Street}, {City}";
+//        }
 
-        public DeliveryAddress Copy()
-        {
-            return new DeliveryAddress(
-                City,
-                Street,
-                BuildingNumber);
-        }
-    }
-}
+//        public DeliveryAddress Copy()
+//        {
+//            return new DeliveryAddress(
+//                City,
+//                Street,
+//                BuildingNumber);
+//        }
+//    }
+//}
 
 #endregion
