@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+#region ExpressShipment
+
+namespace OOP005
+{
+    public class ExpressShipment :
+        Shipment, ITrackable, IInsurable
+    {
+        private decimal extraFee;
+
+        public decimal ExtraFee
+        {
+            get { return extraFee; }
+            set
+            {
+                if (value >= 0)
+                    extraFee = value;
+            }
+        }
+
+        public ExpressShipment(
+            string trackingCode,
+            string description,
+            decimal weight,
+            decimal deliveryFee,
+            DeliveryAddress destination,
+            decimal extraFee)
+            : base(
+                trackingCode,
+                description,
+                weight,
+                deliveryFee,
+                destination)
+        {
+            ExtraFee = extraFee;
+            SetInitialTrackingStatus("Out For Delivery");
+        }
+
+        public override decimal EstimatedCost
+        {
+            get
+            {
+                return DeliveryFee +
+                       (Weight * 5) +
+                       ExtraFee;
+            }
+        }
+
+        public override void PrintShipment()
+        {
+            Console.WriteLine("Express Shipment");
+            Console.WriteLine($"Tracking Code : {TrackingCode}");
+            Console.WriteLine($"Description : {Description}");
+            Console.WriteLine($"Weight : {Weight} KG");
+            Console.WriteLine($"Delivery Fee : {DeliveryFee} EGP");
+            Console.WriteLine($"Extra Fee : {ExtraFee} EGP");
+            Console.WriteLine($"Estimated Cost : {EstimatedCost} EGP");
+        }
+
+        string ITrackable.GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} is {TrackingStatus}.";
+        }
+
+        public decimal CalculateInsurance()
+        {
+            return EstimatedCost * 0.08m;
+        }
+    }
+}
+
+#endregion
